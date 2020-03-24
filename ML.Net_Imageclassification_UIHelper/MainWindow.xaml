@@ -1,0 +1,83 @@
+﻿<Window x:Class="ML.Net_Imageclassification_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ML.Net_Imageclassification_UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center"
+               Content="Visualisation of Image Classification" />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Images to classify:" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ImageFolder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Grid.Row="1" Grid.Column="2" Content="..." Click="SelectImages" />
+
+        <Button Grid.Row="2" Grid.ColumnSpan="4" Margin="5"  Width="100" Content="Run" HorizontalAlignment="Center" Click="Run" />
+
+        <ProgressBar Grid.Row="3" Grid.ColumnSpan="4"
+                     Margin="5"
+                     Minimum="0"
+                     Maximum="{Binding ProgressBarMaxValue, UpdateSourceTrigger=PropertyChanged}"
+                     Value="{Binding ProgressBarCurrentValue, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}" />
+
+        <ListView SelectionMode="Extended" VirtualizingStackPanel.VirtualizationMode="Recycling" Grid.Row="4" Grid.ColumnSpan="4" Name="PredictionResults" Visibility="Collapsed">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" VirtualizingStackPanel.VirtualizationMode="Recycling">
+                        <StackPanel.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Copy To..." Click="CopyTo" />
+                            </ContextMenu>
+                        </StackPanel.ContextMenu>
+                        <Image>
+                            <Image.Source>
+                                <BitmapImage UriSource="{Binding ImageSource}" DecodePixelWidth="150" />
+                            </Image.Source>
+                        </Image>
+                        <Label Content="{Binding Score}" Margin="10 0 0 0" VerticalAlignment="Center" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Expander IsExpanded="False">
+                                            <Expander.Header>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" VerticalAlignment="Bottom" />
+                                                    <TextBlock Text="{Binding ItemCount}"  Margin="10,0,0,0" VerticalAlignment="Bottom" />
+                                                    <TextBlock Text=" item(s)" VerticalAlignment="Bottom" />
+                                                </StackPanel>
+                                            </Expander.Header>
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </ListView.GroupStyle>
+        </ListView>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29814.53
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Net_Imageclassification_UI", "ML.Net_Imageclassification_UIHelper\ML.Net_Imageclassification_UI.csproj", "{EFEC2C24-C624-4371-828A-2B0A5AE2E8EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML.Net_Imageclassification_Model", "ML.Net_Imageclassification_Model\ML.Net_Imageclassification_Model.csproj", "{901DD59D-2562-455C-A293-D54CE3E4E1A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFEC2C24-C624-4371-828A-2B0A5AE2E8EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFEC2C24-C624-4371-828A-2B0A5AE2E8EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFEC2C24-C624-4371-828A-2B0A5AE2E8EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFEC2C24-C624-4371-828A-2B0A5AE2E8EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{901DD59D-2562-455C-A293-D54CE3E4E1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{901DD59D-2562-455C-A293-D54CE3E4E1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{901DD59D-2562-455C-A293-D54CE3E4E1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{901DD59D-2562-455C-A293-D54CE3E4E1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33F075D3-F76B-4624-8F06-07E8E9780DE2}
+	EndGlobalSection
+EndGlobal
